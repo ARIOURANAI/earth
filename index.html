@@ -3,32 +3,51 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARIO × ◯◯ おみくじ</title>
+  <title>SDGsキャラおみくじ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { text-align: center; font-family: sans-serif; padding: 50px; background: #fff8f0; }
-    h1 { font-size: 2em; color: #c14953; }
-    #result { margin-top: 30px; font-size: 1.5em; color: #333; }
-    .btn { padding: 10px 20px; font-size: 1.2em; border: none; background: #ff6b6b; color: white; cursor: pointer; border-radius: 8px; }
-    img { max-width: 200px; margin-top: 20px; }
+    body { font-family: "Arial", sans-serif; text-align: center; padding: 50px; background-color: #fffaf4; }
+    h1 { font-size: 2em; color: #e64a19; }
+    .btn { font-size: 1.2em; padding: 10px 20px; background-color: #f06292; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+    #result { font-size: 1.5em; margin-top: 30px; }
+    #message { margin-top: 10px; font-size: 1.2em; color: #333; }
+    img { margin-top: 20px; max-width: 300px; }
   </style>
 </head>
 <body>
-  <h1>ARIO × ◯◯ おみくじ</h1>
+  <h1>SDGsキャラおみくじ</h1>
   <button class="btn" onclick="draw()">おみくじを引く</button>
   <div id="result"></div>
-  <img id="charImg" src="" alt="" style="display:none;">
+  <div id="message"></div>
+  <img id="fortuneImg" src="" style="display:none;">
   <script>
     const fortunes = [
-      { text: "🎉 大吉 🎉<br>今日は最高の一日！新しい挑戦にぴったり！", img: "daikichi.png" },
-      { text: "😊 中吉 😊<br>穏やかに過ごせばきっと良い日になるよ", img: "chuukichi.png" },
-      { text: "🌿 吉 🌿<br>ひと息ついて、ゆっくり進もう", img: "kichi.png" },
-      { text: "🍀 末吉 🍀<br>小さなラッキーを見つけてね！", img: "suekichi.png" }
+      {
+        name: "🎉 大吉 🎉",
+        message: "あなたの輝きは、誰かの希望になってるよ✨",
+        img: "daikichi.png"
+      },
+      {
+        name: "😊 中吉 😊",
+        message: "ちゃんと前に進んでる。自分を信じて大丈夫◎",
+        img: "chuukichi.png"
+      },
+      {
+        name: "🌿 吉 🌿",
+        message: "そのままのあなたが最高のスパイス！",
+        img: "kichi.png"
+      },
+      {
+        name: "🍀 末吉 🍀",
+        message: "笑ってるあなたが、いちばんステキ♡",
+        img: "suekichi.png"
+      }
     ];
     function draw() {
       const result = fortunes[Math.floor(Math.random() * fortunes.length)];
-      document.getElementById("result").innerHTML = result.text;
-      const img = document.getElementById("charImg");
+      document.getElementById("result").innerHTML = result.name;
+      document.getElementById("message").innerHTML = result.message;
+      const img = document.getElementById("fortuneImg");
       img.src = result.img;
       img.style.display = "block";
     }
